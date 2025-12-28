@@ -264,6 +264,7 @@
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "TB74 Bill Acceptor Test Application";
+            TopMost = true;
             FormClosing += Form1_FormClosing;
             Load += Form1_Load;
             grpConnection.ResumeLayout(false);
