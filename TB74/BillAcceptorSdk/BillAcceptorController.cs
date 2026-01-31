@@ -22,7 +22,7 @@ public class BillAcceptorController(BillAcceptorConfig config)
         powerTransport.Open();
         _log("Power transport opened on {0}", config.PowerTranportCom);
 
-        await powerTransport.WriteAsync([85, 86, 0, 0, 0, 1, 1, 173]);
+        await powerTransport.WriteAsync(config.ProtocolConfig.PowerOnCommand);
         _log("Power ON command sent");
 
         await Task.Delay(500, cancellationToken);
@@ -37,10 +37,7 @@ public class BillAcceptorController(BillAcceptorConfig config)
         };
         var handlers = new List<IBillAcceptorHandler>
         {
-            new PowerUpBillAcceptorHandler(handleInput)
-            {
-                OnSuccess = async ()=> await SetEnableBA(billTransport, true),
-            },
+            new PowerUpBillAcceptorHandler(handleInput),
             new EscrowBillAcceptorHandler(handleInput),
             new ResetBillAcceptorHandler(handleInput),
             new GetStatusBillAcceptorHandler(handleInput),
@@ -54,7 +51,7 @@ public class BillAcceptorController(BillAcceptorConfig config)
 
                 var currentAmount = config.AmountAccepted.Sum();
                 var data = await billTransport.ReadAsync(cancellationToken);
-                _log("[{1}] Received data: 0x{0:X2}", data, currentAmount);
+                _log("Received data: 0x{0:X2}", data, currentAmount);
 
                 var handler = handlers.FirstOrDefault(h => h.CanHandle(data));
                 if (handler != null) await handler.HandleResponse(data);
@@ -82,7 +79,7 @@ public class BillAcceptorController(BillAcceptorConfig config)
             await SetEnableBA(billTransport, false);
             _log("Bill transport Disable");
 
-            await powerTransport.WriteAsync([85, 86, 0, 0, 0, 1, 2, 174]);
+            await powerTransport.WriteAsync(config.ProtocolConfig.PowerOffCommand);
             _log("Power transport OFF on {0}", config.PowerTranportCom);
 
             foreach (var item in handlers)

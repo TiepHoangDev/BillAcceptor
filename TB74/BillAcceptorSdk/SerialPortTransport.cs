@@ -1,12 +1,13 @@
-using System.IO.Ports;
+﻿using System.IO.Ports;
+using System.Threading.Channels;
 
 namespace BillAcceptorSdk;
 
 public class SerialPortTransport : IDisposable
 {
     private readonly SerialPort _port;
-    private event Action<byte>? ByteReceived;
-    
+    private readonly Channel<byte> _channel;
+
     public event Action<Exception>? ErrorOccurred;
 
     public SerialPortTransport(string portName, int baudRate, Parity parity)
@@ -20,6 +21,13 @@ public class SerialPortTransport : IDisposable
             Handshake = Handshake.None,
             Parity = parity,
         };
+
+        _channel = Channel.CreateBounded<byte>(new BoundedChannelOptions(4096)
+        {
+            SingleWriter = true,
+            SingleReader = false,
+            FullMode = BoundedChannelFullMode.DropOldest
+        });
 
         _port.DataReceived += OnDataReceived;
     }
@@ -36,33 +44,17 @@ public class SerialPortTransport : IDisposable
     public void Close()
     {
         if (_port.IsOpen)
-        {
             _port.Close();
-        }
     }
 
-    public async Task<byte> ReadAsync(CancellationToken ct = default)
+    public async ValueTask<byte> ReadAsync(CancellationToken ct = default)
     {
-        var tcs = new TaskCompletionSource<byte>();
-        
-        Action<byte> handler = data =>
-        {
-            tcs.TrySetResult(data);
-        };
+        return await _channel.Reader.ReadAsync(ct);
+    }
 
-        ByteReceived += handler;
-
-        try
-        {
-            using (ct.Register(() => tcs.TrySetCanceled()))
-            {
-                return await tcs.Task;
-            }
-        }
-        finally
-        {
-            ByteReceived -= handler;
-        }
+    public IAsyncEnumerable<byte> ReadStream(CancellationToken ct = default)
+    {
+        return _channel.Reader.ReadAllAsync(ct);
     }
 
     public async Task WriteAsync(params byte[] data)
@@ -77,8 +69,8 @@ public class SerialPortTransport : IDisposable
         {
             while (_port.BytesToRead > 0)
             {
-                var data = (byte)_port.ReadByte();
-                ByteReceived?.Invoke(data);
+                var b = (byte)_port.ReadByte();
+                _channel.Writer.TryWrite(b);
             }
         }
         catch (Exception ex)
@@ -90,6 +82,7 @@ public class SerialPortTransport : IDisposable
     public void Dispose()
     {
         _port.DataReceived -= OnDataReceived;
+        _channel.Writer.TryComplete();
         Close();
         _port.Dispose();
     }

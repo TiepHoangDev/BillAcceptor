@@ -16,7 +16,7 @@ public class PowerUpBillAcceptorHandler : BaseBillAcceptorHandler
         Log("Enter mode: PowerUp");
 
         var res = await BATranport.ReadAsync();
-        Log("PowerUp response: {0}", res.ToString("X2"));
+        Log("PowerUp response: {0:X2}", res);
 
         if (res == Config.ProtocolConfig.PowerUpResponseByte)
         {

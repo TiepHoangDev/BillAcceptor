@@ -1,4 +1,5 @@
 using System.IO.Ports;
+using System.Threading.Tasks;
 
 namespace BillAcceptorSdk.UI;
 
@@ -53,7 +54,7 @@ public partial class FakeBillAcceptorForm : Form
         var existingButtons = grpManual.Controls.OfType<Button>()
             .Where(b => b.Tag?.ToString() == "DenominationButton")
             .ToList();
-        
+
         foreach (var btn in existingButtons)
         {
             grpManual.Controls.Remove(btn);
@@ -87,6 +88,8 @@ public partial class FakeBillAcceptorForm : Form
             {
                 await SendByteAsync(_protocolConfig.EscrowStartByte);
                 await Task.Delay(100);
+                await SendByteAsync(_protocolConfig.EscrowSecondByte);
+                await Task.Delay(100);
                 await SendByteAsync(billType);
             };
 
@@ -94,12 +97,12 @@ public partial class FakeBillAcceptorForm : Form
         }
     }
 
-    private void BtnStart_Click(object sender, EventArgs e)
+    private async void BtnStart_Click(object sender, EventArgs e)
     {
-        StartAsync();
+        await StartAsync();
     }
 
-    private async void StartAsync()
+    private async Task StartAsync()
     {
         try
         {
@@ -120,11 +123,11 @@ public partial class FakeBillAcceptorForm : Form
             _serialPort.Open();
 
             await Task.Delay(500);
-            
+
             _isPowerUpDone = false;
-            _isEnabled = false;
+            _isEnabled = true;
             _isInEscrow = false;
-            
+
             await SendByteAsync(_protocolConfig.PowerUpByte);
             await Task.Delay(100);
             await SendByteAsync(_protocolConfig.PowerUpResponseByte);
@@ -219,8 +222,6 @@ public partial class FakeBillAcceptorForm : Form
             {
                 LogMessage($"✅ Auto: Enable command (0x{_protocolConfig.EnableByte:X2}) → Starting bill simulation...");
                 _isEnabled = true;
-                await Task.Delay(2000);
-                await SimulateBillInsert();
                 return;
             }
 
@@ -240,9 +241,6 @@ public partial class FakeBillAcceptorForm : Form
                     await Task.Delay(500);
                     await SendByteAsync(_protocolConfig.StackedByte);
                     _isInEscrow = false;
-
-                    await Task.Delay(1000);
-                    await SimulateBillInsert();
                 }
                 else if (receivedByte == _protocolConfig.RejectByte)
                 {
@@ -250,9 +248,6 @@ public partial class FakeBillAcceptorForm : Form
                     await Task.Delay(500);
                     await SendByteAsync(_protocolConfig.RejectedByte);
                     _isInEscrow = false;
-
-                    await Task.Delay(1000);
-                    await SimulateBillInsert();
                 }
             }
         }
@@ -265,18 +260,18 @@ public partial class FakeBillAcceptorForm : Form
     private async Task SimulateBillInsert()
     {
         if (!_isEnabled) return;
-        
+
         LogMessage("💵 Auto: Simulating bill insert...");
         await SendByteAsync(_protocolConfig.EscrowStartByte);
         await Task.Delay(100);
-        
+
         var billTypes = _protocolConfig.BillTypeMapping.Keys.ToArray();
         var random = new Random();
         var billType = billTypes[random.Next(billTypes.Length)];
-        
+
         await SendByteAsync(billType);
         _isInEscrow = true;
-        
+
         var amount = _protocolConfig.BillTypeMapping[billType];
         LogMessage($"💵 Auto: Bill in escrow: {amount:N0} VND (0x{billType:X2})");
     }
@@ -315,25 +310,25 @@ public partial class FakeBillAcceptorForm : Form
 
         await _serialPort.BaseStream.WriteAsync(new[] { data }, 0, 1);
         await _serialPort.BaseStream.FlushAsync();
-        LogMessage($">> TX: 0x{data:X2} ({GetByteDescription(data)})");
+        LogMessage($">> Send: 0x{data:X2} ({GetByteDescription(data)})");
     }
 
     private string GetByteDescription(byte data)
     {
-        if (data == _protocolConfig.PowerUpByte) return $"PowerUp ({data:X2}H)";
-        if (data == _protocolConfig.PowerUpResponseByte) return $"PowerUp Response ({data:X2}H)";
-        if (data == _protocolConfig.AckByte) return $"ACK/Accept ({data:X2}H)";
-        if (data == _protocolConfig.EnableByte) return $"Enable ({data:X2}H)";
-        if (data == _protocolConfig.DisableByte) return $"Disable ({data:X2}H)";
-        if (data == _protocolConfig.EscrowStartByte) return $"Escrow Start ({data:X2}H)";
-        if (data == _protocolConfig.RejectByte) return $"Reject ({data:X2}H)";
-        if (data == _protocolConfig.StackedByte) return $"Stacked ({data:X2}H)";
-        if (data == _protocolConfig.RejectedByte) return $"Rejected ({data:X2}H)";
-        if (data == _protocolConfig.ResetByte) return $"Reset ({data:X2}H)";
-        
+        if (data == _protocolConfig.PowerUpByte) return $"PowerUp (0x{data:X2})";
+        if (data == _protocolConfig.PowerUpResponseByte) return $"PowerUp Response (0x{data:X2})";
+        if (data == _protocolConfig.AckByte) return $"ACK/Accept (0x{data:X2})";
+        if (data == _protocolConfig.EnableByte) return $"Enable (0x{data:X2})";
+        if (data == _protocolConfig.DisableByte) return $"Disable (0x{data:X2})";
+        if (data == _protocolConfig.EscrowStartByte) return $"Escrow Start (0x{data:X2})";
+        if (data == _protocolConfig.RejectByte) return $"Reject (0x{data:X2})";
+        if (data == _protocolConfig.StackedByte) return $"Stacked (0x{data:X2})";
+        if (data == _protocolConfig.RejectedByte) return $"Rejected (0x{data:X2})";
+        if (data == _protocolConfig.ResetByte) return $"Reset (0x{data:X2})";
+
         if (_protocolConfig.BillTypeMapping.TryGetValue(data, out var amount))
             return $"Bill: {amount:N0} VND";
-        
+
         return $"Unknown (0x{data:X2})";
     }
 
