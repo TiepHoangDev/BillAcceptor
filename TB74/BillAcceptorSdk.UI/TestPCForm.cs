@@ -6,11 +6,21 @@ public partial class TestPCForm : Form
 {
     private CancellationTokenSource? _paymentCts;
     private long _currentTotal = 0;
+    private BillAcceptorProtocolConfig? _protocolConfig;
+    private string? _initialPowerCom;
+    private string? _initialBillCom;
 
     public TestPCForm()
     {
         InitializeComponent();
         Load += TestPCForm_Load;
+    }
+
+    public TestPCForm(BillAcceptorProtocolConfig protocolConfig, string powerCom, string billCom) : this()
+    {
+        _protocolConfig = protocolConfig;
+        _initialPowerCom = powerCom;
+        _initialBillCom = billCom;
     }
 
     private void TestPCForm_Load(object? sender, EventArgs e)
@@ -23,11 +33,15 @@ public partial class TestPCForm : Form
         var ports = System.IO.Ports.SerialPort.GetPortNames().Distinct().ToArray();
         cmbBillComPort.Items.AddRange(ports);
         cmbPowerComPort.Items.AddRange(ports);
-        
-        if (cmbBillComPort.Items.Count > 0)
+
+        if (!string.IsNullOrEmpty(_initialBillCom) && cmbBillComPort.Items.Contains(_initialBillCom))
+            cmbBillComPort.SelectedItem = _initialBillCom;
+        else if (cmbBillComPort.Items.Count > 0)
             cmbBillComPort.SelectedIndex = 0;
-        
-        if (cmbPowerComPort.Items.Count > 0)
+
+        if (!string.IsNullOrEmpty(_initialPowerCom) && cmbPowerComPort.Items.Contains(_initialPowerCom))
+            cmbPowerComPort.SelectedItem = _initialPowerCom;
+        else if (cmbPowerComPort.Items.Count > 0)
             cmbPowerComPort.SelectedIndex = cmbPowerComPort.Items.Count > 1 ? 1 : 0;
 
         numTargetAmount.Value = 70000;
@@ -99,7 +113,8 @@ public partial class TestPCForm : Form
                 BillTranportCom = billComPort,
                 PowerTranportCom = powerComPort,
                 TotalAmount = targetAmount,
-                Log = msg => LogMessage(msg)
+                Log = msg => LogMessage(msg),
+                ProtocolConfig = _protocolConfig ?? BillAcceptorProtocolConfig.Default
             };
 
             var controller = new BillAcceptorController(config);
@@ -165,7 +180,7 @@ public partial class TestPCForm : Form
 
     private void BtnOpenFake_Click(object sender, EventArgs e)
     {
-        new FakeBillAcceptorForm().Show();
+        new FakeBillAcceptorForm() { TopMost = this.TopMost }.Show();
     }
 
     private void LogMessage(string message)

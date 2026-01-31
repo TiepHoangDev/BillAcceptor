@@ -31,6 +31,7 @@ public class BillAcceptorProtocolConfig
         { 0x42, 50000 },
         { 0x43, 100000 },
         { 0x44, 200000 },
+        { 0x45, 500000 },
     };
 
     public static BillAcceptorProtocolConfig Default => new BillAcceptorProtocolConfig();
