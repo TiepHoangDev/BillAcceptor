@@ -173,6 +173,7 @@ namespace BillAcceptorSdk.UI
             this.btnStart.TabIndex = 6;
             this.btnStart.Text = "START PAYMENT";
             this.btnStart.UseVisualStyleBackColor = false;
+            this.btnStart.Click += new System.EventHandler(this.BtnStart_Click);
             // 
             // btnOpenFake
             // 
@@ -183,6 +184,7 @@ namespace BillAcceptorSdk.UI
             this.btnOpenFake.TabIndex = 7;
             this.btnOpenFake.Text = "Open Fake Bill Acceptor";
             this.btnOpenFake.UseVisualStyleBackColor = true;
+            this.btnOpenFake.Click += new System.EventHandler(this.BtnOpenFake_Click);
             // 
             // panelPayment
             // 
@@ -253,6 +255,7 @@ namespace BillAcceptorSdk.UI
             this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "CANCEL PAYMENT";
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // btnBack
             // 
@@ -263,14 +266,15 @@ namespace BillAcceptorSdk.UI
             this.btnBack.TabIndex = 5;
             this.btnBack.Text = "BACK TO SETTINGS";
             this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.BtnBack_Click);
             // 
             // TestPCForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(686, 520);
-            this.Controls.Add(this.panelPayment);
             this.Controls.Add(this.panelSettings);
+            this.Controls.Add(this.panelPayment);
             this.Name = "TestPCForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bill Acceptor - PC Test - tiephoang.dev@gmail.com - 0974.131.292";

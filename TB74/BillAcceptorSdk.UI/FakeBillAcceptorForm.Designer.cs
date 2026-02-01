@@ -59,7 +59,7 @@ namespace BillAcceptorSdk.UI
             this.panelSettings.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelSettings.Location = new System.Drawing.Point(0, 0);
             this.panelSettings.Name = "panelSettings";
-            this.panelSettings.Size = new System.Drawing.Size(686, 520);
+            this.panelSettings.Size = new System.Drawing.Size(800, 520);
             this.panelSettings.TabIndex = 0;
             // 
             // grpSettings
@@ -70,7 +70,7 @@ namespace BillAcceptorSdk.UI
             this.grpSettings.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
             this.grpSettings.Location = new System.Drawing.Point(17, 17);
             this.grpSettings.Name = "grpSettings";
-            this.grpSettings.Size = new System.Drawing.Size(651, 130);
+            this.grpSettings.Size = new System.Drawing.Size(771, 130);
             this.grpSettings.TabIndex = 0;
             this.grpSettings.TabStop = false;
             this.grpSettings.Text = "Settings";
@@ -113,10 +113,11 @@ namespace BillAcceptorSdk.UI
             this.btnStart.ForeColor = System.Drawing.Color.White;
             this.btnStart.Location = new System.Drawing.Point(17, 165);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(651, 69);
+            this.btnStart.Size = new System.Drawing.Size(771, 69);
             this.btnStart.TabIndex = 1;
             this.btnStart.Text = "START FAKE DEVICE";
             this.btnStart.UseVisualStyleBackColor = false;
+            this.btnStart.Click += new System.EventHandler(this.BtnStart_Click);
             // 
             // panelRunning
             // 
@@ -127,7 +128,7 @@ namespace BillAcceptorSdk.UI
             this.panelRunning.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelRunning.Location = new System.Drawing.Point(0, 0);
             this.panelRunning.Name = "panelRunning";
-            this.panelRunning.Size = new System.Drawing.Size(686, 520);
+            this.panelRunning.Size = new System.Drawing.Size(800, 520);
             this.panelRunning.TabIndex = 1;
             this.panelRunning.Visible = false;
             // 
@@ -140,7 +141,7 @@ namespace BillAcceptorSdk.UI
             this.grpManual.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
             this.grpManual.Location = new System.Drawing.Point(17, 17);
             this.grpManual.Name = "grpManual";
-            this.grpManual.Size = new System.Drawing.Size(646, 130);
+            this.grpManual.Size = new System.Drawing.Size(771, 130);
             this.grpManual.TabIndex = 0;
             this.grpManual.TabStop = false;
             this.grpManual.Text = "Manual Commands";
@@ -154,6 +155,7 @@ namespace BillAcceptorSdk.UI
             this.btnSendReady.TabIndex = 0;
             this.btnSendReady.Text = "PowerUp (0x80 0x8F)";
             this.btnSendReady.UseVisualStyleBackColor = true;
+            this.btnSendReady.Click += new System.EventHandler(this.BtnSendReady_Click);
             // 
             // btnSendInsert
             // 
@@ -164,30 +166,33 @@ namespace BillAcceptorSdk.UI
             this.btnSendInsert.TabIndex = 1;
             this.btnSendInsert.Text = "INSERT (0x81)";
             this.btnSendInsert.UseVisualStyleBackColor = true;
+            this.btnSendInsert.Click += new System.EventHandler(this.BtnSendInsert_Click);
             // 
             // btnSendStacked
             // 
             this.btnSendStacked.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnSendStacked.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnSendStacked.ForeColor = System.Drawing.Color.White;
-            this.btnSendStacked.Location = new System.Drawing.Point(326, 30);
+            this.btnSendStacked.Location = new System.Drawing.Point(464, 30);
             this.btnSendStacked.Name = "btnSendStacked";
             this.btnSendStacked.Size = new System.Drawing.Size(147, 35);
             this.btnSendStacked.TabIndex = 9;
             this.btnSendStacked.Text = "STACKED (0x10)";
             this.btnSendStacked.UseVisualStyleBackColor = false;
+            this.btnSendStacked.Click += new System.EventHandler(this.BtnSendStacked_Click);
             // 
             // btnSendRejected
             // 
             this.btnSendRejected.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnSendRejected.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnSendRejected.ForeColor = System.Drawing.Color.White;
-            this.btnSendRejected.Location = new System.Drawing.Point(479, 30);
+            this.btnSendRejected.Location = new System.Drawing.Point(617, 30);
             this.btnSendRejected.Name = "btnSendRejected";
             this.btnSendRejected.Size = new System.Drawing.Size(147, 35);
             this.btnSendRejected.TabIndex = 10;
             this.btnSendRejected.Text = "REJECTED (0x11)";
             this.btnSendRejected.UseVisualStyleBackColor = false;
+            this.btnSendRejected.Click += new System.EventHandler(this.BtnSendRejected_Click);
             // 
             // txtLog
             // 
@@ -197,7 +202,7 @@ namespace BillAcceptorSdk.UI
             this.txtLog.Name = "txtLog";
             this.txtLog.ReadOnly = true;
             this.txtLog.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtLog.Size = new System.Drawing.Size(652, 278);
+            this.txtLog.Size = new System.Drawing.Size(771, 278);
             this.txtLog.TabIndex = 1;
             this.txtLog.WordWrap = false;
             // 
@@ -212,24 +217,26 @@ namespace BillAcceptorSdk.UI
             this.btnStop.TabIndex = 2;
             this.btnStop.Text = "STOP DEVICE";
             this.btnStop.UseVisualStyleBackColor = false;
+            this.btnStop.Click += new System.EventHandler(this.BtnStop_Click);
             // 
             // btnBack
             // 
             this.btnBack.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.btnBack.Location = new System.Drawing.Point(351, 459);
+            this.btnBack.Location = new System.Drawing.Point(471, 459);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(317, 43);
             this.btnBack.TabIndex = 3;
             this.btnBack.Text = "BACK TO SETTINGS";
             this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.BtnBack_Click);
             // 
             // FakeBillAcceptorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(686, 520);
-            this.Controls.Add(this.panelRunning);
+            this.ClientSize = new System.Drawing.Size(800, 520);
             this.Controls.Add(this.panelSettings);
+            this.Controls.Add(this.panelRunning);
             this.Name = "FakeBillAcceptorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Fake Bill Acceptor - tiephoang.dev@gmail.com - 0974.131.292";
