@@ -33,226 +33,255 @@ namespace BillAcceptorSdk.UI
 
         private void InitializeComponent()
         {
-            panelSettings = new Panel();
-            panelPayment = new Panel();
-            grpSettings = new GroupBox();
-            cmbBillComPort = new ComboBox();
-            cmbPowerComPort = new ComboBox();
-            numTargetAmount = new NumericUpDown();
-            btnStart = new Button();
-            btnOpenFake = new Button();
-            lblBillComPort = new Label();
-            lblPowerComPort = new Label();
-            lblTargetAmountLabel = new Label();
-            txtLog = new TextBox();
-            lblCurrentAmount = new Label();
-            lblTargetAmount = new Label();
-            lblProgress = new Label();
-            btnCancel = new Button();
-            btnBack = new Button();
-            
-            panelSettings.SuspendLayout();
-            panelPayment.SuspendLayout();
-            grpSettings.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numTargetAmount).BeginInit();
-            SuspendLayout();
-            
+            this.panelSettings = new System.Windows.Forms.Panel();
+            this.grpSettings = new System.Windows.Forms.GroupBox();
+            this.lblBillComPort = new System.Windows.Forms.Label();
+            this.cmbBillComPort = new System.Windows.Forms.ComboBox();
+            this.lblPowerComPort = new System.Windows.Forms.Label();
+            this.cmbPowerComPort = new System.Windows.Forms.ComboBox();
+            this.lblTargetAmountLabel = new System.Windows.Forms.Label();
+            this.numTargetAmount = new System.Windows.Forms.NumericUpDown();
+            this.btnStart = new System.Windows.Forms.Button();
+            this.btnOpenFake = new System.Windows.Forms.Button();
+            this.panelPayment = new System.Windows.Forms.Panel();
+            this.lblCurrentAmount = new System.Windows.Forms.Label();
+            this.lblTargetAmount = new System.Windows.Forms.Label();
+            this.lblProgress = new System.Windows.Forms.Label();
+            this.txtLog = new System.Windows.Forms.TextBox();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
+            this.panelSettings.SuspendLayout();
+            this.grpSettings.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numTargetAmount)).BeginInit();
+            this.panelPayment.SuspendLayout();
+            this.SuspendLayout();
+            // 
             // panelSettings
-            panelSettings.Controls.Add(grpSettings);
-            panelSettings.Controls.Add(btnStart);
-            panelSettings.Controls.Add(btnOpenFake);
-            panelSettings.Dock = DockStyle.Fill;
-            panelSettings.Location = new Point(0, 0);
-            panelSettings.Name = "panelSettings";
-            panelSettings.Size = new Size(800, 600);
-            panelSettings.TabIndex = 0;
-            
+            // 
+            this.panelSettings.Controls.Add(this.grpSettings);
+            this.panelSettings.Controls.Add(this.btnStart);
+            this.panelSettings.Controls.Add(this.btnOpenFake);
+            this.panelSettings.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelSettings.Location = new System.Drawing.Point(0, 0);
+            this.panelSettings.Name = "panelSettings";
+            this.panelSettings.Size = new System.Drawing.Size(686, 520);
+            this.panelSettings.TabIndex = 0;
+            // 
             // grpSettings
-            grpSettings.Controls.Add(lblBillComPort);
-            grpSettings.Controls.Add(cmbBillComPort);
-            grpSettings.Controls.Add(lblPowerComPort);
-            grpSettings.Controls.Add(cmbPowerComPort);
-            grpSettings.Controls.Add(lblTargetAmountLabel);
-            grpSettings.Controls.Add(numTargetAmount);
-            grpSettings.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            grpSettings.Location = new Point(20, 20);
-            grpSettings.Name = "grpSettings";
-            grpSettings.Size = new Size(760, 220);
-            grpSettings.TabIndex = 0;
-            grpSettings.TabStop = false;
-            grpSettings.Text = "Payment Settings";
-            
+            // 
+            this.grpSettings.Controls.Add(this.lblBillComPort);
+            this.grpSettings.Controls.Add(this.cmbBillComPort);
+            this.grpSettings.Controls.Add(this.lblPowerComPort);
+            this.grpSettings.Controls.Add(this.cmbPowerComPort);
+            this.grpSettings.Controls.Add(this.lblTargetAmountLabel);
+            this.grpSettings.Controls.Add(this.numTargetAmount);
+            this.grpSettings.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.grpSettings.Location = new System.Drawing.Point(17, 17);
+            this.grpSettings.Name = "grpSettings";
+            this.grpSettings.Size = new System.Drawing.Size(651, 191);
+            this.grpSettings.TabIndex = 0;
+            this.grpSettings.TabStop = false;
+            this.grpSettings.Text = "Payment Settings";
+            // 
             // lblBillComPort
-            lblBillComPort.AutoSize = true;
-            lblBillComPort.Font = new Font("Segoe UI", 11F);
-            lblBillComPort.Location = new Point(20, 40);
-            lblBillComPort.Name = "lblBillComPort";
-            lblBillComPort.Size = new Size(120, 20);
-            lblBillComPort.TabIndex = 0;
-            lblBillComPort.Text = "Bill COM Port:";
-            
+            // 
+            this.lblBillComPort.AutoSize = true;
+            this.lblBillComPort.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.lblBillComPort.Location = new System.Drawing.Point(17, 35);
+            this.lblBillComPort.Name = "lblBillComPort";
+            this.lblBillComPort.Size = new System.Drawing.Size(100, 20);
+            this.lblBillComPort.TabIndex = 0;
+            this.lblBillComPort.Text = "Bill COM Port:";
+            // 
             // cmbBillComPort
-            cmbBillComPort.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbBillComPort.Font = new Font("Segoe UI", 11F);
-            cmbBillComPort.FormattingEnabled = true;
-            cmbBillComPort.Location = new Point(150, 37);
-            cmbBillComPort.Name = "cmbBillComPort";
-            cmbBillComPort.Size = new Size(200, 28);
-            cmbBillComPort.TabIndex = 1;
-            
+            // 
+            this.cmbBillComPort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbBillComPort.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.cmbBillComPort.FormattingEnabled = true;
+            this.cmbBillComPort.Location = new System.Drawing.Point(129, 32);
+            this.cmbBillComPort.Name = "cmbBillComPort";
+            this.cmbBillComPort.Size = new System.Drawing.Size(172, 28);
+            this.cmbBillComPort.TabIndex = 1;
+            // 
             // lblPowerComPort
-            lblPowerComPort.AutoSize = true;
-            lblPowerComPort.Font = new Font("Segoe UI", 11F);
-            lblPowerComPort.Location = new Point(20, 80);
-            lblPowerComPort.Name = "lblPowerComPort";
-            lblPowerComPort.Size = new Size(130, 20);
-            lblPowerComPort.TabIndex = 2;
-            lblPowerComPort.Text = "Power COM:";
-            
+            // 
+            this.lblPowerComPort.AutoSize = true;
+            this.lblPowerComPort.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.lblPowerComPort.Location = new System.Drawing.Point(17, 69);
+            this.lblPowerComPort.Name = "lblPowerComPort";
+            this.lblPowerComPort.Size = new System.Drawing.Size(89, 20);
+            this.lblPowerComPort.TabIndex = 2;
+            this.lblPowerComPort.Text = "Power COM:";
+            // 
             // cmbPowerComPort
-            cmbPowerComPort.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbPowerComPort.Font = new Font("Segoe UI", 11F);
-            cmbPowerComPort.FormattingEnabled = true;
-            cmbPowerComPort.Location = new Point(150, 77);
-            cmbPowerComPort.Name = "cmbPowerComPort";
-            cmbPowerComPort.Size = new Size(200, 28);
-            cmbPowerComPort.TabIndex = 3;
-            
+            // 
+            this.cmbPowerComPort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPowerComPort.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.cmbPowerComPort.FormattingEnabled = true;
+            this.cmbPowerComPort.Location = new System.Drawing.Point(129, 67);
+            this.cmbPowerComPort.Name = "cmbPowerComPort";
+            this.cmbPowerComPort.Size = new System.Drawing.Size(172, 28);
+            this.cmbPowerComPort.TabIndex = 3;
+            // 
             // lblTargetAmountLabel
-            lblTargetAmountLabel.AutoSize = true;
-            lblTargetAmountLabel.Font = new Font("Segoe UI", 11F);
-            lblTargetAmountLabel.Location = new Point(20, 120);
-            lblTargetAmountLabel.Name = "lblTargetAmountLabel";
-            lblTargetAmountLabel.Size = new Size(120, 20);
-            lblTargetAmountLabel.TabIndex = 4;
-            lblTargetAmountLabel.Text = "Target Amount:";
-            
+            // 
+            this.lblTargetAmountLabel.AutoSize = true;
+            this.lblTargetAmountLabel.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.lblTargetAmountLabel.Location = new System.Drawing.Point(17, 104);
+            this.lblTargetAmountLabel.Name = "lblTargetAmountLabel";
+            this.lblTargetAmountLabel.Size = new System.Drawing.Size(110, 20);
+            this.lblTargetAmountLabel.TabIndex = 4;
+            this.lblTargetAmountLabel.Text = "Target Amount:";
+            // 
             // numTargetAmount
-            numTargetAmount.Font = new Font("Segoe UI", 11F);
-            numTargetAmount.Increment = new decimal(new int[] { 10000, 0, 0, 0 });
-            numTargetAmount.Location = new Point(150, 117);
-            numTargetAmount.Maximum = new decimal(new int[] { 10000000, 0, 0, 0 });
-            numTargetAmount.Minimum = new decimal(new int[] { 10000, 0, 0, 0 });
-            numTargetAmount.Name = "numTargetAmount";
-            numTargetAmount.Size = new Size(200, 27);
-            numTargetAmount.TabIndex = 5;
-            numTargetAmount.ThousandsSeparator = true;
-            numTargetAmount.Value = new decimal(new int[] { 70000, 0, 0, 0 });
-            
+            // 
+            this.numTargetAmount.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.numTargetAmount.Increment = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.numTargetAmount.Location = new System.Drawing.Point(129, 101);
+            this.numTargetAmount.Maximum = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            0});
+            this.numTargetAmount.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.numTargetAmount.Name = "numTargetAmount";
+            this.numTargetAmount.Size = new System.Drawing.Size(171, 27);
+            this.numTargetAmount.TabIndex = 5;
+            this.numTargetAmount.ThousandsSeparator = true;
+            this.numTargetAmount.Value = new decimal(new int[] {
+            70000,
+            0,
+            0,
+            0});
+            // 
             // btnStart
-            btnStart.BackColor = Color.FromArgb(0, 192, 0);
-            btnStart.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
-            btnStart.ForeColor = Color.White;
-            btnStart.Location = new Point(20, 260);
-            btnStart.Name = "btnStart";
-            btnStart.Size = new Size(760, 80);
-            btnStart.TabIndex = 6;
-            btnStart.Text = "START PAYMENT";
-            btnStart.UseVisualStyleBackColor = false;
-            btnStart.Click += BtnStart_Click;
-            
+            // 
+            this.btnStart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnStart.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
+            this.btnStart.ForeColor = System.Drawing.Color.White;
+            this.btnStart.Location = new System.Drawing.Point(17, 225);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(651, 69);
+            this.btnStart.TabIndex = 6;
+            this.btnStart.Text = "START PAYMENT";
+            this.btnStart.UseVisualStyleBackColor = false;
+            // 
             // btnOpenFake
-            btnOpenFake.Font = new Font("Segoe UI", 10F);
-            btnOpenFake.Location = new Point(20, 360);
-            btnOpenFake.Name = "btnOpenFake";
-            btnOpenFake.Size = new Size(200, 40);
-            btnOpenFake.TabIndex = 7;
-            btnOpenFake.Text = "Open Fake Bill Acceptor";
-            btnOpenFake.UseVisualStyleBackColor = true;
-            btnOpenFake.Click += BtnOpenFake_Click;
-            
+            // 
+            this.btnOpenFake.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btnOpenFake.Location = new System.Drawing.Point(17, 312);
+            this.btnOpenFake.Name = "btnOpenFake";
+            this.btnOpenFake.Size = new System.Drawing.Size(171, 35);
+            this.btnOpenFake.TabIndex = 7;
+            this.btnOpenFake.Text = "Open Fake Bill Acceptor";
+            this.btnOpenFake.UseVisualStyleBackColor = true;
+            // 
             // panelPayment
-            panelPayment.Controls.Add(lblCurrentAmount);
-            panelPayment.Controls.Add(lblTargetAmount);
-            panelPayment.Controls.Add(lblProgress);
-            panelPayment.Controls.Add(txtLog);
-            panelPayment.Controls.Add(btnCancel);
-            panelPayment.Controls.Add(btnBack);
-            panelPayment.Dock = DockStyle.Fill;
-            panelPayment.Location = new Point(0, 0);
-            panelPayment.Name = "panelPayment";
-            panelPayment.Size = new Size(800, 600);
-            panelPayment.TabIndex = 1;
-            panelPayment.Visible = false;
-            
+            // 
+            this.panelPayment.Controls.Add(this.lblCurrentAmount);
+            this.panelPayment.Controls.Add(this.lblTargetAmount);
+            this.panelPayment.Controls.Add(this.lblProgress);
+            this.panelPayment.Controls.Add(this.txtLog);
+            this.panelPayment.Controls.Add(this.btnCancel);
+            this.panelPayment.Controls.Add(this.btnBack);
+            this.panelPayment.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelPayment.Location = new System.Drawing.Point(0, 0);
+            this.panelPayment.Name = "panelPayment";
+            this.panelPayment.Size = new System.Drawing.Size(686, 520);
+            this.panelPayment.TabIndex = 1;
+            this.panelPayment.Visible = false;
+            // 
             // lblCurrentAmount
-            lblCurrentAmount.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
-            lblCurrentAmount.ForeColor = Color.Green;
-            lblCurrentAmount.Location = new Point(20, 20);
-            lblCurrentAmount.Name = "lblCurrentAmount";
-            lblCurrentAmount.Size = new Size(760, 40);
-            lblCurrentAmount.TabIndex = 0;
-            lblCurrentAmount.Text = "Received: 0 VND";
-            lblCurrentAmount.TextAlign = ContentAlignment.MiddleCenter;
-            
+            // 
+            this.lblCurrentAmount.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
+            this.lblCurrentAmount.ForeColor = System.Drawing.Color.Green;
+            this.lblCurrentAmount.Location = new System.Drawing.Point(17, 17);
+            this.lblCurrentAmount.Name = "lblCurrentAmount";
+            this.lblCurrentAmount.Size = new System.Drawing.Size(651, 35);
+            this.lblCurrentAmount.TabIndex = 0;
+            this.lblCurrentAmount.Text = "Received: 0 VND";
+            this.lblCurrentAmount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // lblTargetAmount
-            lblTargetAmount.Font = new Font("Segoe UI", 14F);
-            lblTargetAmount.Location = new Point(20, 65);
-            lblTargetAmount.Name = "lblTargetAmount";
-            lblTargetAmount.Size = new Size(760, 30);
-            lblTargetAmount.TabIndex = 1;
-            lblTargetAmount.Text = "Target: 70,000 VND";
-            lblTargetAmount.TextAlign = ContentAlignment.MiddleCenter;
-            
+            // 
+            this.lblTargetAmount.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.lblTargetAmount.Location = new System.Drawing.Point(17, 56);
+            this.lblTargetAmount.Name = "lblTargetAmount";
+            this.lblTargetAmount.Size = new System.Drawing.Size(651, 26);
+            this.lblTargetAmount.TabIndex = 1;
+            this.lblTargetAmount.Text = "Target: 70,000 VND";
+            this.lblTargetAmount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // lblProgress
-            lblProgress.Font = new Font("Segoe UI", 12F);
-            lblProgress.Location = new Point(20, 100);
-            lblProgress.Name = "lblProgress";
-            lblProgress.Size = new Size(760, 25);
-            lblProgress.TabIndex = 2;
-            lblProgress.Text = "Progress: 0%";
-            lblProgress.TextAlign = ContentAlignment.MiddleCenter;
-            
+            // 
+            this.lblProgress.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.lblProgress.Location = new System.Drawing.Point(17, 87);
+            this.lblProgress.Name = "lblProgress";
+            this.lblProgress.Size = new System.Drawing.Size(651, 22);
+            this.lblProgress.TabIndex = 2;
+            this.lblProgress.Text = "Progress: 0%";
+            this.lblProgress.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // txtLog
-            txtLog.Font = new Font("Consolas", 10F);
-            txtLog.Location = new Point(20, 140);
-            txtLog.Multiline = true;
-            txtLog.Name = "txtLog";
-            txtLog.ReadOnly = true;
-            txtLog.ScrollBars = ScrollBars.Both;
-            txtLog.Size = new Size(760, 370);
-            txtLog.TabIndex = 3;
-            txtLog.WordWrap = false;
-            
+            // 
+            this.txtLog.Font = new System.Drawing.Font("Consolas", 10F);
+            this.txtLog.Location = new System.Drawing.Point(17, 121);
+            this.txtLog.Multiline = true;
+            this.txtLog.Name = "txtLog";
+            this.txtLog.ReadOnly = true;
+            this.txtLog.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtLog.Size = new System.Drawing.Size(652, 321);
+            this.txtLog.TabIndex = 3;
+            this.txtLog.WordWrap = false;
+            // 
             // btnCancel
-            btnCancel.BackColor = Color.FromArgb(192, 0, 0);
-            btnCancel.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnCancel.ForeColor = Color.White;
-            btnCancel.Location = new Point(20, 520);
-            btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(370, 50);
-            btnCancel.TabIndex = 4;
-            btnCancel.Text = "CANCEL PAYMENT";
-            btnCancel.UseVisualStyleBackColor = false;
-            btnCancel.Click += BtnCancel_Click;
-            
+            // 
+            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnCancel.ForeColor = System.Drawing.Color.White;
+            this.btnCancel.Location = new System.Drawing.Point(17, 451);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(317, 43);
+            this.btnCancel.TabIndex = 4;
+            this.btnCancel.Text = "CANCEL PAYMENT";
+            this.btnCancel.UseVisualStyleBackColor = false;
+            // 
             // btnBack
-            btnBack.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnBack.Location = new Point(410, 520);
-            btnBack.Name = "btnBack";
-            btnBack.Size = new Size(370, 50);
-            btnBack.TabIndex = 5;
-            btnBack.Text = "BACK TO SETTINGS";
-            btnBack.UseVisualStyleBackColor = true;
-            btnBack.Click += BtnBack_Click;
-            
+            // 
+            this.btnBack.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnBack.Location = new System.Drawing.Point(351, 451);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(317, 43);
+            this.btnBack.TabIndex = 5;
+            this.btnBack.Text = "BACK TO SETTINGS";
+            this.btnBack.UseVisualStyleBackColor = true;
+            // 
             // TestPCForm
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 600);
-            Controls.Add(panelPayment);
-            Controls.Add(panelSettings);
-            Name = "TestPCForm";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "Bill Acceptor - PC Test";
-            
-            panelSettings.ResumeLayout(false);
-            panelPayment.ResumeLayout(false);
-            panelPayment.PerformLayout();
-            grpSettings.ResumeLayout(false);
-            grpSettings.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numTargetAmount).EndInit();
-            ResumeLayout(false);
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(686, 520);
+            this.Controls.Add(this.panelPayment);
+            this.Controls.Add(this.panelSettings);
+            this.Name = "TestPCForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Bill Acceptor - PC Test - tiephoang.dev@gmail.com - 0974.131.292";
+            this.panelSettings.ResumeLayout(false);
+            this.grpSettings.ResumeLayout(false);
+            this.grpSettings.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numTargetAmount)).EndInit();
+            this.panelPayment.ResumeLayout(false);
+            this.panelPayment.PerformLayout();
+            this.ResumeLayout(false);
+
         }
     }
 }

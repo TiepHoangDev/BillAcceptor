@@ -31,223 +31,216 @@ namespace BillAcceptorSdk.UI
 
         private void InitializeComponent()
         {
-            panelSettings = new Panel();
-            grpSettings = new GroupBox();
-            lblComPort = new Label();
-            cmbComPort = new ComboBox();
-            chkAutoReply = new CheckBox();
-            btnStart = new Button();
-            panelRunning = new Panel();
-            grpManual = new GroupBox();
-            btnSendReady = new Button();
-            btnSendInsert = new Button();
-            btnSendStacked = new Button();
-            btnSendRejected = new Button();
-            txtLog = new TextBox();
-            btnStop = new Button();
-            btnBack = new Button();
-            panelSettings.SuspendLayout();
-            grpSettings.SuspendLayout();
-            panelRunning.SuspendLayout();
-            grpManual.SuspendLayout();
-            SuspendLayout();
+            this.panelSettings = new System.Windows.Forms.Panel();
+            this.grpSettings = new System.Windows.Forms.GroupBox();
+            this.lblComPort = new System.Windows.Forms.Label();
+            this.cmbComPort = new System.Windows.Forms.ComboBox();
+            this.chkAutoReply = new System.Windows.Forms.CheckBox();
+            this.btnStart = new System.Windows.Forms.Button();
+            this.panelRunning = new System.Windows.Forms.Panel();
+            this.grpManual = new System.Windows.Forms.GroupBox();
+            this.btnSendReady = new System.Windows.Forms.Button();
+            this.btnSendInsert = new System.Windows.Forms.Button();
+            this.btnSendStacked = new System.Windows.Forms.Button();
+            this.btnSendRejected = new System.Windows.Forms.Button();
+            this.txtLog = new System.Windows.Forms.TextBox();
+            this.btnStop = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
+            this.panelSettings.SuspendLayout();
+            this.grpSettings.SuspendLayout();
+            this.panelRunning.SuspendLayout();
+            this.grpManual.SuspendLayout();
+            this.SuspendLayout();
             // 
             // panelSettings
             // 
-            panelSettings.Controls.Add(grpSettings);
-            panelSettings.Controls.Add(btnStart);
-            panelSettings.Dock = DockStyle.Fill;
-            panelSettings.Location = new Point(0, 0);
-            panelSettings.Name = "panelSettings";
-            panelSettings.Size = new Size(800, 600);
-            panelSettings.TabIndex = 0;
+            this.panelSettings.Controls.Add(this.grpSettings);
+            this.panelSettings.Controls.Add(this.btnStart);
+            this.panelSettings.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelSettings.Location = new System.Drawing.Point(0, 0);
+            this.panelSettings.Name = "panelSettings";
+            this.panelSettings.Size = new System.Drawing.Size(686, 520);
+            this.panelSettings.TabIndex = 0;
             // 
             // grpSettings
             // 
-            grpSettings.Controls.Add(lblComPort);
-            grpSettings.Controls.Add(cmbComPort);
-            grpSettings.Controls.Add(chkAutoReply);
-            grpSettings.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            grpSettings.Location = new Point(20, 20);
-            grpSettings.Name = "grpSettings";
-            grpSettings.Size = new Size(760, 150);
-            grpSettings.TabIndex = 0;
-            grpSettings.TabStop = false;
-            grpSettings.Text = "Settings";
+            this.grpSettings.Controls.Add(this.lblComPort);
+            this.grpSettings.Controls.Add(this.cmbComPort);
+            this.grpSettings.Controls.Add(this.chkAutoReply);
+            this.grpSettings.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.grpSettings.Location = new System.Drawing.Point(17, 17);
+            this.grpSettings.Name = "grpSettings";
+            this.grpSettings.Size = new System.Drawing.Size(651, 130);
+            this.grpSettings.TabIndex = 0;
+            this.grpSettings.TabStop = false;
+            this.grpSettings.Text = "Settings";
             // 
             // lblComPort
             // 
-            lblComPort.AutoSize = true;
-            lblComPort.Font = new Font("Segoe UI", 10F);
-            lblComPort.Location = new Point(20, 35);
-            lblComPort.Name = "lblComPort";
-            lblComPort.Size = new Size(74, 19);
-            lblComPort.TabIndex = 0;
-            lblComPort.Text = "COM Port:";
+            this.lblComPort.AutoSize = true;
+            this.lblComPort.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblComPort.Location = new System.Drawing.Point(17, 30);
+            this.lblComPort.Name = "lblComPort";
+            this.lblComPort.Size = new System.Drawing.Size(74, 19);
+            this.lblComPort.TabIndex = 0;
+            this.lblComPort.Text = "COM Port:";
             // 
             // cmbComPort
             // 
-            cmbComPort.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbComPort.Font = new Font("Segoe UI", 10F);
-            cmbComPort.FormattingEnabled = true;
-            cmbComPort.Location = new Point(110, 32);
-            cmbComPort.Name = "cmbComPort";
-            cmbComPort.Size = new Size(150, 25);
-            cmbComPort.TabIndex = 1;
+            this.cmbComPort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbComPort.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cmbComPort.FormattingEnabled = true;
+            this.cmbComPort.Location = new System.Drawing.Point(94, 28);
+            this.cmbComPort.Name = "cmbComPort";
+            this.cmbComPort.Size = new System.Drawing.Size(129, 25);
+            this.cmbComPort.TabIndex = 1;
             // 
             // chkAutoReply
             // 
-            chkAutoReply.AutoSize = true;
-            chkAutoReply.Font = new Font("Segoe UI", 10F);
-            chkAutoReply.Location = new Point(20, 90);
-            chkAutoReply.Name = "chkAutoReply";
-            chkAutoReply.Size = new Size(207, 23);
-            chkAutoReply.TabIndex = 2;
-            chkAutoReply.Text = "Auto Reply to PC Commands";
-            chkAutoReply.UseVisualStyleBackColor = true;
-            chkAutoReply.CheckedChanged += ChkAutoReply_CheckedChanged;
+            this.chkAutoReply.AutoSize = true;
+            this.chkAutoReply.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.chkAutoReply.Location = new System.Drawing.Point(17, 78);
+            this.chkAutoReply.Name = "chkAutoReply";
+            this.chkAutoReply.Size = new System.Drawing.Size(207, 23);
+            this.chkAutoReply.TabIndex = 2;
+            this.chkAutoReply.Text = "Auto Reply to PC Commands";
+            this.chkAutoReply.UseVisualStyleBackColor = true;
             // 
             // btnStart
             // 
-            btnStart.BackColor = Color.FromArgb(0, 192, 0);
-            btnStart.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
-            btnStart.ForeColor = Color.White;
-            btnStart.Location = new Point(20, 190);
-            btnStart.Name = "btnStart";
-            btnStart.Size = new Size(760, 80);
-            btnStart.TabIndex = 1;
-            btnStart.Text = "START FAKE DEVICE";
-            btnStart.UseVisualStyleBackColor = false;
-            btnStart.Click += BtnStart_Click;
+            this.btnStart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnStart.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
+            this.btnStart.ForeColor = System.Drawing.Color.White;
+            this.btnStart.Location = new System.Drawing.Point(17, 165);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(651, 69);
+            this.btnStart.TabIndex = 1;
+            this.btnStart.Text = "START FAKE DEVICE";
+            this.btnStart.UseVisualStyleBackColor = false;
             // 
             // panelRunning
             // 
-            panelRunning.Controls.Add(grpManual);
-            panelRunning.Controls.Add(txtLog);
-            panelRunning.Controls.Add(btnStop);
-            panelRunning.Controls.Add(btnBack);
-            panelRunning.Dock = DockStyle.Fill;
-            panelRunning.Location = new Point(0, 0);
-            panelRunning.Name = "panelRunning";
-            panelRunning.Size = new Size(800, 600);
-            panelRunning.TabIndex = 1;
-            panelRunning.Visible = false;
+            this.panelRunning.Controls.Add(this.grpManual);
+            this.panelRunning.Controls.Add(this.txtLog);
+            this.panelRunning.Controls.Add(this.btnStop);
+            this.panelRunning.Controls.Add(this.btnBack);
+            this.panelRunning.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelRunning.Location = new System.Drawing.Point(0, 0);
+            this.panelRunning.Name = "panelRunning";
+            this.panelRunning.Size = new System.Drawing.Size(686, 520);
+            this.panelRunning.TabIndex = 1;
+            this.panelRunning.Visible = false;
             // 
             // grpManual
             // 
-            grpManual.Controls.Add(btnSendReady);
-            grpManual.Controls.Add(btnSendInsert);
-            grpManual.Controls.Add(btnSendStacked);
-            grpManual.Controls.Add(btnSendRejected);
-            grpManual.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            grpManual.Location = new Point(20, 20);
-            grpManual.Name = "grpManual";
-            grpManual.Size = new Size(754, 150);
-            grpManual.TabIndex = 0;
-            grpManual.TabStop = false;
-            grpManual.Text = "Manual Commands";
+            this.grpManual.Controls.Add(this.btnSendReady);
+            this.grpManual.Controls.Add(this.btnSendInsert);
+            this.grpManual.Controls.Add(this.btnSendStacked);
+            this.grpManual.Controls.Add(this.btnSendRejected);
+            this.grpManual.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.grpManual.Location = new System.Drawing.Point(17, 17);
+            this.grpManual.Name = "grpManual";
+            this.grpManual.Size = new System.Drawing.Size(646, 130);
+            this.grpManual.TabIndex = 0;
+            this.grpManual.TabStop = false;
+            this.grpManual.Text = "Manual Commands";
             // 
             // btnSendReady
             // 
-            btnSendReady.Font = new Font("Segoe UI", 9F);
-            btnSendReady.Location = new Point(20, 35);
-            btnSendReady.Name = "btnSendReady";
-            btnSendReady.Size = new Size(110, 40);
-            btnSendReady.TabIndex = 0;
-            btnSendReady.Text = "PowerUp\n(0x80 0x8F)";
-            btnSendReady.UseVisualStyleBackColor = true;
-            btnSendReady.Click += BtnSendReady_Click;
+            this.btnSendReady.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnSendReady.Location = new System.Drawing.Point(17, 30);
+            this.btnSendReady.Name = "btnSendReady";
+            this.btnSendReady.Size = new System.Drawing.Size(147, 35);
+            this.btnSendReady.TabIndex = 0;
+            this.btnSendReady.Text = "PowerUp (0x80 0x8F)";
+            this.btnSendReady.UseVisualStyleBackColor = true;
             // 
             // btnSendInsert
             // 
-            btnSendInsert.Font = new Font("Segoe UI", 9F);
-            btnSendInsert.Location = new Point(140, 35);
-            btnSendInsert.Name = "btnSendInsert";
-            btnSendInsert.Size = new Size(110, 40);
-            btnSendInsert.TabIndex = 1;
-            btnSendInsert.Text = "INSERT (0x81)";
-            btnSendInsert.UseVisualStyleBackColor = true;
-            btnSendInsert.Click += BtnSendInsert_Click;
+            this.btnSendInsert.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnSendInsert.Location = new System.Drawing.Point(170, 30);
+            this.btnSendInsert.Name = "btnSendInsert";
+            this.btnSendInsert.Size = new System.Drawing.Size(147, 35);
+            this.btnSendInsert.TabIndex = 1;
+            this.btnSendInsert.Text = "INSERT (0x81)";
+            this.btnSendInsert.UseVisualStyleBackColor = true;
             // 
             // btnSendStacked
             // 
-            btnSendStacked.BackColor = Color.FromArgb(0, 192, 0);
-            btnSendStacked.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            btnSendStacked.ForeColor = Color.White;
-            btnSendStacked.Location = new Point(380, 35);
-            btnSendStacked.Name = "btnSendStacked";
-            btnSendStacked.Size = new Size(110, 40);
-            btnSendStacked.TabIndex = 9;
-            btnSendStacked.Text = "STACKED\n(0x10)";
-            btnSendStacked.UseVisualStyleBackColor = false;
-            btnSendStacked.Click += BtnSendStacked_Click;
+            this.btnSendStacked.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnSendStacked.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnSendStacked.ForeColor = System.Drawing.Color.White;
+            this.btnSendStacked.Location = new System.Drawing.Point(326, 30);
+            this.btnSendStacked.Name = "btnSendStacked";
+            this.btnSendStacked.Size = new System.Drawing.Size(147, 35);
+            this.btnSendStacked.TabIndex = 9;
+            this.btnSendStacked.Text = "STACKED (0x10)";
+            this.btnSendStacked.UseVisualStyleBackColor = false;
             // 
             // btnSendRejected
             // 
-            btnSendRejected.BackColor = Color.FromArgb(192, 0, 0);
-            btnSendRejected.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            btnSendRejected.ForeColor = Color.White;
-            btnSendRejected.Location = new Point(500, 35);
-            btnSendRejected.Name = "btnSendRejected";
-            btnSendRejected.Size = new Size(110, 40);
-            btnSendRejected.TabIndex = 10;
-            btnSendRejected.Text = "REJECTED\n(0x11)";
-            btnSendRejected.UseVisualStyleBackColor = false;
-            btnSendRejected.Click += BtnSendRejected_Click;
+            this.btnSendRejected.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnSendRejected.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnSendRejected.ForeColor = System.Drawing.Color.White;
+            this.btnSendRejected.Location = new System.Drawing.Point(479, 30);
+            this.btnSendRejected.Name = "btnSendRejected";
+            this.btnSendRejected.Size = new System.Drawing.Size(147, 35);
+            this.btnSendRejected.TabIndex = 10;
+            this.btnSendRejected.Text = "REJECTED (0x11)";
+            this.btnSendRejected.UseVisualStyleBackColor = false;
             // 
             // txtLog
             // 
-            txtLog.Font = new Font("Consolas", 9F);
-            txtLog.Location = new Point(20, 190);
-            txtLog.Multiline = true;
-            txtLog.Name = "txtLog";
-            txtLog.ReadOnly = true;
-            txtLog.ScrollBars = ScrollBars.Both;
-            txtLog.Size = new Size(760, 320);
-            txtLog.TabIndex = 1;
-            txtLog.WordWrap = false;
+            this.txtLog.Font = new System.Drawing.Font("Consolas", 9F);
+            this.txtLog.Location = new System.Drawing.Point(17, 165);
+            this.txtLog.Multiline = true;
+            this.txtLog.Name = "txtLog";
+            this.txtLog.ReadOnly = true;
+            this.txtLog.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtLog.Size = new System.Drawing.Size(652, 278);
+            this.txtLog.TabIndex = 1;
+            this.txtLog.WordWrap = false;
             // 
             // btnStop
             // 
-            btnStop.BackColor = Color.FromArgb(192, 0, 0);
-            btnStop.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnStop.ForeColor = Color.White;
-            btnStop.Location = new Point(20, 530);
-            btnStop.Name = "btnStop";
-            btnStop.Size = new Size(370, 50);
-            btnStop.TabIndex = 2;
-            btnStop.Text = "STOP DEVICE";
-            btnStop.UseVisualStyleBackColor = false;
-            btnStop.Click += BtnStop_Click;
+            this.btnStop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnStop.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnStop.ForeColor = System.Drawing.Color.White;
+            this.btnStop.Location = new System.Drawing.Point(17, 459);
+            this.btnStop.Name = "btnStop";
+            this.btnStop.Size = new System.Drawing.Size(317, 43);
+            this.btnStop.TabIndex = 2;
+            this.btnStop.Text = "STOP DEVICE";
+            this.btnStop.UseVisualStyleBackColor = false;
             // 
             // btnBack
             // 
-            btnBack.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnBack.Location = new Point(410, 530);
-            btnBack.Name = "btnBack";
-            btnBack.Size = new Size(370, 50);
-            btnBack.TabIndex = 3;
-            btnBack.Text = "BACK TO SETTINGS";
-            btnBack.UseVisualStyleBackColor = true;
-            btnBack.Click += BtnBack_Click;
+            this.btnBack.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnBack.Location = new System.Drawing.Point(351, 459);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(317, 43);
+            this.btnBack.TabIndex = 3;
+            this.btnBack.Text = "BACK TO SETTINGS";
+            this.btnBack.UseVisualStyleBackColor = true;
             // 
             // FakeBillAcceptorForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 600);
-            Controls.Add(panelRunning);
-            Controls.Add(panelSettings);
-            Name = "FakeBillAcceptorForm";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "Fake Bill Acceptor";
-            panelSettings.ResumeLayout(false);
-            grpSettings.ResumeLayout(false);
-            grpSettings.PerformLayout();
-            panelRunning.ResumeLayout(false);
-            panelRunning.PerformLayout();
-            grpManual.ResumeLayout(false);
-            ResumeLayout(false);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(686, 520);
+            this.Controls.Add(this.panelRunning);
+            this.Controls.Add(this.panelSettings);
+            this.Name = "FakeBillAcceptorForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Fake Bill Acceptor - tiephoang.dev@gmail.com - 0974.131.292";
+            this.panelSettings.ResumeLayout(false);
+            this.grpSettings.ResumeLayout(false);
+            this.grpSettings.PerformLayout();
+            this.panelRunning.ResumeLayout(false);
+            this.panelRunning.PerformLayout();
+            this.grpManual.ResumeLayout(false);
+            this.ResumeLayout(false);
+
         }
     }
 }

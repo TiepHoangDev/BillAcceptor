@@ -2,7 +2,7 @@ namespace BillAcceptorSdk;
 
 public class BillAcceptorHandlerInput
 {
-    public required BillAcceptorConfig Config { get; set; }
-    public required SerialPortTransport BATranport { get; set; }
+    public BillAcceptorConfig Config { get; set; } = null!;
+    public SerialPortTransport BATranport { get; set; } = null!;
 }
 

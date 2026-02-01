@@ -21,9 +21,9 @@ public class ResetBillAcceptorHandler : BaseBillAcceptorHandler
         return _powerUpBillAcceptor.CanHandle(data);
     }
 
-    public override Task<bool> HandleResponse(byte data)
+    public override async Task HandleResponse(byte data)
     {
-        return _powerUpBillAcceptor.HandleResponse(data);
+        await _powerUpBillAcceptor.HandleResponse(data);
     }
 }
 

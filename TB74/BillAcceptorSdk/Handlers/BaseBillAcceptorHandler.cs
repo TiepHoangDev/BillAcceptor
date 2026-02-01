@@ -1,10 +1,17 @@
 namespace BillAcceptorSdk.Handlers;
 
-public abstract class BaseBillAcceptorHandler(BillAcceptorHandlerInput billAcceptorHandlerInput) : IBillAcceptorHandler
+public abstract class BaseBillAcceptorHandler : IBillAcceptorHandler
 {
-    protected readonly BillAcceptorConfig Config = billAcceptorHandlerInput.Config;
-    protected readonly BillAcceptorHandlerInput Input = billAcceptorHandlerInput;
-    protected readonly SerialPortTransport BATranport = billAcceptorHandlerInput.BATranport;
+    protected readonly BillAcceptorConfig Config;
+    protected readonly BillAcceptorHandlerInput Input;
+    protected readonly SerialPortTransport BATranport;
+
+    protected BaseBillAcceptorHandler(BillAcceptorHandlerInput billAcceptorHandlerInput)
+    {
+        Input = billAcceptorHandlerInput;
+        Config = billAcceptorHandlerInput.Config;
+        BATranport = billAcceptorHandlerInput.BATranport;
+    }
 
     public Action? OnSuccess { get; set; }
 

@@ -1,3 +1,6 @@
+using System;
+using System.Windows.Forms;
+
 namespace BillAcceptorSdk.UI
 {
     internal static class Program
@@ -8,7 +11,8 @@ namespace BillAcceptorSdk.UI
         [STAThread]
         static void Main(string[] args)
         {
-            ApplicationConfiguration.Initialize();
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new TestPCForm());
         }
     }

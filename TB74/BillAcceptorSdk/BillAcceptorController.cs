@@ -4,8 +4,14 @@ using System.Net.Http.Headers;
 
 namespace BillAcceptorSdk;
 
-public class BillAcceptorController(BillAcceptorConfig config)
+public class BillAcceptorController
 {
+    private readonly BillAcceptorConfig config;
+
+    public BillAcceptorController(BillAcceptorConfig config)
+    {
+        this.config = config;
+    }
     public event EventHandler<string>? OnLog;
     public event EventHandler<long>? OnAmountChange;
 
@@ -99,10 +105,10 @@ public class BillAcceptorController(BillAcceptorConfig config)
 
 public class BillAcceptorConfig
 {
-    public required string BillTranportCom { get; set; }
-    public required string PowerTranportCom { get; set; }
-    public required long TotalAmount { get; set; }
-    public List<long> AmountAccepted { get; set; } = [];
+    public string BillTranportCom { get; set; } = string.Empty;
+    public string PowerTranportCom { get; set; } = string.Empty;
+    public long TotalAmount { get; set; }
+    public List<long> AmountAccepted { get; set; } = new List<long>();
     public Action<string>? Log { get; set; }
     public BillAcceptorProtocolConfig ProtocolConfig { get; set; } = BillAcceptorProtocolConfig.Default;
 }

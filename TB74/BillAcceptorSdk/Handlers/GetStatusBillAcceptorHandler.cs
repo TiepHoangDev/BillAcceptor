@@ -34,10 +34,10 @@ public class GetStatusBillAcceptorHandler : BaseBillAcceptorHandler
         return billAcceptorStatus.ContainsKey(data);
     }
 
-    public override Task<string> HandleResponse(byte data)
+    public override Task HandleResponse(byte data)
     {
         RaiseSuccess();
-        return Task.FromResult(billAcceptorStatus[data]);
+        return Task.CompletedTask;
     }
 
     public override async Task SendAsync()

@@ -11,7 +11,7 @@ public class PowerUpBillAcceptorHandler : BaseBillAcceptorHandler
         return data == Config.ProtocolConfig.PowerUpByte;
     }
 
-    public async override Task<bool> HandleResponse(byte data)
+    public override async Task HandleResponse(byte data)
     {
         Log("Enter mode: PowerUp");
 
@@ -20,15 +20,13 @@ public class PowerUpBillAcceptorHandler : BaseBillAcceptorHandler
 
         if (res == Config.ProtocolConfig.PowerUpResponseByte)
         {
-            await BATranport.WriteAsync([Config.ProtocolConfig.AckByte]);
+            await BATranport.WriteAsync(new byte[] { Config.ProtocolConfig.AckByte });
             Log("Reply OK");
 
             RaiseSuccess();
-            return true;
+            return;
         }
         Log($"PowerUp failed. Response wrong byte code ({res:X2})");
-
-        return false;
     }
 }
 

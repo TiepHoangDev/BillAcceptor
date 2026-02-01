@@ -47,14 +47,20 @@ public class SerialPortTransport : IDisposable
             _port.Close();
     }
 
-    public async ValueTask<byte> ReadAsync(CancellationToken ct = default)
+    public async Task<byte> ReadAsync(CancellationToken ct = default)
     {
         return await _channel.Reader.ReadAsync(ct);
     }
 
-    public IAsyncEnumerable<byte> ReadStream(CancellationToken ct = default)
+    public async IAsyncEnumerable<byte> ReadStream([System.Runtime.CompilerServices.EnumeratorCancellation] CancellationToken ct = default)
     {
-        return _channel.Reader.ReadAllAsync(ct);
+        while (await _channel.Reader.WaitToReadAsync(ct))
+        {
+            while (_channel.Reader.TryRead(out var item))
+            {
+                yield return item;
+            }
+        }
     }
 
     public async Task WriteAsync(params byte[] data)
