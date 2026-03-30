@@ -91,6 +91,7 @@ public partial class FakeBillAcceptorForm : Form
                 await SendByteAsync(_protocolConfig.EscrowSecondByte);
                 await Task.Delay(100);
                 await SendByteAsync(billType);
+                _isInEscrow = true;
             };
 
             grpManual.Controls.Add(btn);
